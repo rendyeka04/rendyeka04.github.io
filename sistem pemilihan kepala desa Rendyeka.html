@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemilihan Kepala Desa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #0ef366;
+        }
+        .kandidat {
+            margin-bottom: 20px;
+        }
+        .kandidat input[type="radio"] {
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pemilihan Kepala Desa</h1>
+    <form id="form-pemilu">
+        <div class="kandidat">
+            <input type="radio" name="kandidat" value="Kandidat 1" id="kandidat1">
+            <label for="kandidat1">rendy 1</label>
+        </div>
+        <div class="kandidat">
+            <input type="radio" name="kandidat" value="Kandidat 2" id="kandidat2">
+            <label for="kandidat2">dwn 2</label>
+        </div>
+        <div class="kandidat">
+            <input type="radio" name="kandidat" value="Kandidat 3" id="kandidat3">
+            <label for="kandidat3">iz 3</label> /.\        </div>
+        <button type="button" onclick="submitVote()">Pilih</button>
+    </form>
+
+    <h2>Hasil Perhitungan:</h2>
+    <div id="hasil">
+        <p>rendy 1: <span id="suara1">0</span> suara</p>
+        <p>dwn 2: <span id="suara2">0</span> suara</p>
+        <p>iz 3: <span id="suara3">0</span> suara</p>
+    </div>
+
+    <script>
+        let suaraKandidat1 = 0;
+        let suaraKandidat2 = 0;
+        let suaraKandidat3 = 0;
+
+        function submitVote() {
+            const kandidatTerpilih = document.querySelector('input[name="kandidat"]:checked');
+            if (kandidatTerpilih) {
+                if (kandidatTerpilih.value === "Kandidat 1") {
+                    suaraKandidat1++;
+                    document.getElementById("suara1").innerText = suaraKandidat1;
+                } else if (kandidatTerpilih.value === "Kandidat 2") {
+                    suaraKandidat2++;
+                    document.getElementById("suara2").innerText = suaraKandidat2;
+                } else if (kandidatTerpilih.value === "Kandidat 3") {
+                    suaraKandidat3++;
+                    document.getElementById("suara3").innerText = suaraKandidat3;
+                }
+                alert("Terima kasih telah memberikan suara Anda!");
+                document.getElementById("form-pemilu").reset();
+            } else {
+                alert("Silakan pilih salah satu kandidat sebelum submit.");
+            }
+        }
+    </script>
+</body>
+</html>

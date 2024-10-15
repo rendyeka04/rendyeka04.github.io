@@ -1,0 +1,316 @@
+<<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemilihan Kepala Daerah 2024</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eef2f3;
+        }
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #34495e;
+            overflow: hidden;
+        }
+        nav a {
+            float: left;
+            display: block;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            background-color: #2c3e50;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .candidate {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .candidate img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+            object-fit: cover;
+        }
+        .candidate-info {
+            flex: 1;
+        }
+        .candidate-info h3 {
+            margin: 0;
+            color: #2c3e50;
+        }
+        .candidate-info p {
+            margin: 5px 0;
+            color: #7f8c8d;
+        }
+        .vote-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #219150;
+        }
+        .result {
+            background-color: #dff0d8;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            color: #3c763d;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        /* Modal Styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 100; 
+            padding-top: 100px; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4); 
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+        }
+        /* Responsive */
+        @media (max-width: 600px) {
+            .candidate {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .candidate img {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Pemilihan Kepala Daerah 2024</h1>
+        <p>Memilih Pemimpin Untuk Kabupaten Madiun Yang Lebih Baik</p>
+    </header>
+
+    <nav>
+        <a href="#home">Beranda</a>
+        <a href="#candidates">Kandidat</a>
+        <a href="#vote">Pilih</a>
+        <a href="#results">Hasil</a>
+    </nav>
+
+    <div class="container" id="home">
+        <h2>Selamat Datang di Pilkada 2024</h2>
+        <p>Pemilihan Kepala Daerah (Pilkada) adalah momen penting bagi masyarakat untuk memilih pemimpin yang akan membawa kemajuan dan kesejahteraan bagi daerah. Pilihlah dengan bijak dan gunakan hak suaramu untuk masa depan yang lebih baik.</p>
+    </div>
+
+    <div class="container" id="candidates">
+        <h2>Kandidat Tersedia</h2>
+
+        <div class="candidate">
+            <img src="https://via.placeholder.com/100" alt="Kandidat 1">
+            <div class="candidate-info">
+                <h3>Kandidat 1: Budi Santoso</h3>
+                <p>Pengalaman: Mantan Bupati selama 2 periode</p>
+                <p>Visi: Meningkatkan infrastruktur dan pendidikan</p>
+            </div>
+        </div>
+
+        <div class="candidate">
+            <img src="https://via.placeholder.com/100" alt="Kandidat 2">
+            <div class="candidate-info">
+                <h3>Kandidat 2: Joseph Gusminarno</h3>
+                <p>Pengalaman: Aktivis sosial dan pengusaha</p>
+                <p>Visi: Pemberdayaan ekonomi dan kesehatan masyarakat</p>
+            </div>
+        </div>
+
+        <div class="candidate">
+            <img src="https://via.placeholder.com/100" alt="Kandidat 3">
+            <div class="candidate-info">
+                <h3>Kandidat 3: Agus Wahyudi</h3>
+                <p>Pengalaman: Akademisi dan pakar lingkungan</p>
+                <p>Visi: Keberlanjutan lingkungan dan teknologi</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="vote">
+        <h2>Pilih Kandidat Anda</h2>
+        <form id="voteForm">
+            <div>
+                <input type="radio" id="kandidat1" name="kandidat" value="1">
+                <label for="kandidat1">Budi Santoso</label>
+            </div>
+            <div>
+                <input type="radio" id="kandidat2" name="kandidat" value="2">
+                <label for="kandidat2">Joseph Gusminarno</label>
+            </div>
+            <div>
+                <input type="radio" id="kandidat3" name="kandidat" value="3">
+                <label for="kandidat3">Agus Wahyudi</label>
+            </div>
+            <br>
+            <button type="button" onclick="submitVote()">Kirim Suara</button>
+        </form>
+    </div>
+
+    <div class="container" id="results">
+        <h2>Hasil Penghitungan Suara</h2>
+        <div class="result" id="resultDisplay">
+            <p>Belum ada suara yang masuk.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Pilkada Daerah. Semua hak dilindungi.</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p>Terima kasih telah memilih!</p>
+        </div>
+    </div>
+
+    <script>
+        // Inisialisasi suara
+        let suara = {
+            1: 0,
+            2: 0,
+            3: 0
+        };
+
+        function submitVote() {
+            const form = document.getElementById('voteForm');
+            const kandidat = form.kandidat.value;
+
+            if (!kandidat) {
+                alert('Silakan pilih salah satu kandidat.');
+                return;
+            }
+
+            // Menambahkan suara
+            suara[kandidat] += 1;
+
+            // Menampilkan modal terima kasih
+            document.getElementById('successModal').style.display = 'block';
+
+            // Mengupdate hasil
+            updateResults();
+        }
+
+        function updateResults() {
+            const totalSuara = suara[1] + suara[2] + suara[3];
+            let pemenang = '';
+            let maxSuara = Math.max(suara[1], suara[2], suara[3]);
+
+            // Cek apakah ada seri
+            let pemenangList = [];
+            for (let kandidat in suara) {
+                if (suara[kandidat] === maxSuara) {
+                    pemenangList.push(kandidat);
+                }
+            }
+
+            if (pemenangList.length === 1) {
+                pemenang = getKandidatName(pemenangList[0]) + ' menang!';
+            } else {
+                pemenang = 'Tidak ada pemenang yang jelas (ada seri).';
+            }
+
+            // Menampilkan hasil
+            document.getElementById('resultDisplay').innerHTML = `
+                <p>Total Suara Masuk: ${totalSuara}</p>
+                <p>Suara Kandidat 1 (Budi Santoso): ${suara[1]}</p>
+                <p>Suara Kandidat 2 (Joseph Gusminarno): ${suara[2]}</p>
+                <p>Suara Kandidat 3 (Agus Wahyudi): ${suara[3]}</p>
+                <h3>${pemenang}</h3>
+            `;
+        }
+
+        function getKandidatName(id) {
+            switch(id) {
+                case '1': return 'Budi Santoso';
+                case '2': return 'Joseph Gusminarno';
+                case '3': return 'Agus Wahyudi';
+                default: return '';
+            }
+        }
+
+        // Modal handling
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+            // Reset form
+            document.getElementById('voteForm').reset();
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('successModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+                document.getElementById('voteForm').reset();
+            }
+        }
+    </script>
+
+</body>
+</html>
